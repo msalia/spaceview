@@ -20,24 +20,38 @@ export default async () => {
     });
 
     const groups = await await Promise.all(
-      ['Bal', 'Kishore'].map(
-        async name => await Group.create({name, pin: 1234}),
-      ),
+      ['Bal', 'K1'].map(async name => await Group.create({name, pin: 1234})),
     );
 
     const rooms = await Promise.all(
       Array.from({length: 2}).map(
-        async _ => await Room.create({location: faker.name.firstName()}),
+        async _ => await Room.create({location: faker.address.state()}),
+      ),
+    );
+
+    await Promise.all(
+      ['Bal', 'K2'].map(
+        async (name, index) =>
+          await Config.create({
+            createdBy: admin._id,
+            group: groups[index % 2]._id,
+            logo: faker.image.dataUri(),
+            name,
+            roomMapping: rooms.map(({_id}) => ({
+              name: faker.address.county(),
+              room: _id,
+            })),
+          }),
       ),
     );
 
     await Array.from({length: 4}).forEach(async (_, index) => {
-      const date = Date.now() / 1000;
+      const date = Math.round(Date.now() / 1000);
       await Event.create({
         createdBy: admin._id,
         endTime: date,
         group: groups[index % 2]._id,
-        name: faker.name.firstName(),
+        name: faker.random.word(),
         room: rooms[index % 2]._id,
         startTime: date + 60 * 60 * 1000,
       });
