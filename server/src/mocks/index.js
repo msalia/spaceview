@@ -1,7 +1,6 @@
 import Room from '../models/Room';
 
 import faker from 'faker';
-import moment from 'moment';
 
 export default async () => {
   try {
