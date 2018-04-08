@@ -1,6 +1,12 @@
 import mongoose, {Schema} from 'mongoose';
 
 const ConfigSchema = new Schema({
+  areas: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Area',
+    },
+  ],
   createdBy: {
     type: Schema.Types.ObjectId,
     ref: 'Admin',
