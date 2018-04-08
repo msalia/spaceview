@@ -20,6 +20,9 @@ export default {
     createdBy: ({createdBy}) => Admin.findById(createdBy),
     group: ({group}) => Group.findById(group),
   },
+  Room: {
+    area: ({area}) => Area.findById(area),
+  },
   Query: {
     getAllAreas: AreaResolvers.getAllAreas,
     getArea: AreaResolvers.getArea,

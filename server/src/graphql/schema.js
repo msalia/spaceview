@@ -31,7 +31,7 @@ export default `
 
   type Room {
     _id: ID!
-    area: ID!
+    area: Area!
     location: String!
   }
 
