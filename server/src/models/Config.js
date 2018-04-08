@@ -15,6 +15,7 @@ const ConfigSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Group',
   },
+  isActive: {type: Boolean},
   logo: {type: String, trim: true},
   name: {type: String, trim: true},
   roomMapping: [
