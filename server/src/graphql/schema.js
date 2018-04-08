@@ -7,8 +7,15 @@ export default `
     username: String!
   }
 
+  type Area {
+    _id: ID!
+    name: String!
+    rooms: [Room]!
+  }
+
   type Config {
     _id: ID!
+    areas: [Area]!
     createdBy: Admin!
     group: Group!
     logo: String!
@@ -24,6 +31,7 @@ export default `
 
   type Room {
     _id: ID!
+    area: ID!
     location: String!
   }
 
@@ -47,6 +55,8 @@ export default `
   }
 
   type Query {
+    getAllAreas: [Area]!
+    getArea(areaID: ID!): Area
     getRoomData(roomID: ID!): RoomData
   }
 
