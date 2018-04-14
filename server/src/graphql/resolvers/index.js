@@ -27,6 +27,8 @@ export default {
     getAllAreas: AreaResolvers.getAllAreas,
     getArea: AreaResolvers.getArea,
     getRoomData: RoomResolvers.getRoomData,
+    getAllRooms: RoomResolvers.getAllRooms,
+    getRoom: RoomResolvers.getRoom,
   },
   Mutation: {
     blank: _ => '',

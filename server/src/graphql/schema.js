@@ -18,6 +18,7 @@ export default `
     areas: [Area]!
     createdBy: Admin!
     group: Group!
+    isActive: Boolean
     logo: String!
     name: String!
     roomMapping: [RoomMapping]!
@@ -57,7 +58,9 @@ export default `
   type Query {
     getAllAreas: [Area]!
     getArea(areaID: ID!): Area
-    getRoomData(roomID: ID!): RoomData
+    getRoomData(roomID: ID!, startTime: Int!, endTime: Int!): RoomData
+    getAllRooms: [Room]!
+    getRoom(roomID: ID!): Room!
   }
 
   type RoomData {
