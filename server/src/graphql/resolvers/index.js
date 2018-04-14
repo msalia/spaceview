@@ -28,11 +28,15 @@ export default {
     getAllAreas: AreaResolvers.getAllAreas,
     getArea: AreaResolvers.getArea,
     getRoomData: RoomResolvers.getRoomData,
+    getAllRooms: RoomResolvers.getAllRooms,
+    getRoom: RoomResolvers.getRoom,
+
     getEvent: EventResolvers.getEvent,
     getEventsBetween: EventResolvers.getEventsBetween,
     getAllEvents: EventResolvers.getAllEvents,
     getAllEventsByGroups: EventResolvers.getAllEventsByGroups,
     getEventsForRooms: EventResolvers.getEventsForRooms
+
   },
   Mutation: {
     blank: _ => ""

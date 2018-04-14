@@ -44,6 +44,7 @@ export default async () => {
             areas: [area._id],
             createdBy: admin._id,
             group: groups[index % 2]._id,
+            isActive: true,
             logo: faker.image.dataUri(),
             name,
             roomMapping: rooms.map(({_id}) => ({
@@ -58,11 +59,11 @@ export default async () => {
       const date = Math.round(Date.now() / 1000);
       await Event.create({
         createdBy: admin._id,
-        endTime: date,
+        endTime: date + 60 * 60 * 1000,
         group: groups[index % 2]._id,
         name: faker.random.word(),
         room: rooms[index % 2]._id,
-        startTime: date + 60 * 60 * 1000,
+        startTime: date,
       });
     });
   } catch (error) {
