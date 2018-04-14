@@ -6,32 +6,38 @@ import GraphQLDate from 'graphql-date';
 import Group from '../../models/Group';
 import Room from '../../models/Room';
 import RoomResolvers from './room-resolvers';
+import EventResolvers from './event-resolvers';
 
 export default {
   Area: {
-    rooms: ({_id}) => Room.find({area: {$in: _id}}),
+    rooms: ({ _id }) => Room.find({ area: { $in: _id } })
   },
   Config: {
-    areas: ({areas}) => Area.find({_id: {$in: areas}}),
-    createdBy: ({createdBy}) => Admin.findById(createdBy),
-    group: ({group}) => Group.findById(group),
+    areas: ({ areas }) => Area.find({ _id: { $in: areas } }),
+    createdBy: ({ createdBy }) => Admin.findById(createdBy),
+    group: ({ group }) => Group.findById(group)
   },
   Event: {
-    createdBy: ({createdBy}) => Admin.findById(createdBy),
-    group: ({group}) => Group.findById(group),
+    createdBy: ({ createdBy }) => Admin.findById(createdBy),
+    group: ({ group }) => Group.findById(group)
   },
   Room: {
-    area: ({area}) => Area.findById(area),
+    area: ({ area }) => Area.findById(area)
   },
   Query: {
     getAllAreas: AreaResolvers.getAllAreas,
     getArea: AreaResolvers.getArea,
     getRoomData: RoomResolvers.getRoomData,
+    getEvent: EventResolvers.getEvent,
+    getEventsBetween: EventResolvers.getEventsBetween,
+    getAllEvents: EventResolvers.getAllEvents,
+    getAllEventsByGroups: EventResolvers.getAllEventsByGroups,
+    getEventsForRooms: EventResolvers.getEventsForRooms
   },
   Mutation: {
-    blank: _ => '',
+    blank: _ => ""
   },
   Subscription: {
-    blank: _ => '',
-  },
+    blank: _ => ""
+  }
 };
