@@ -58,6 +58,11 @@ export default `
     getAllAreas: [Area]!
     getArea(areaID: ID!): Area
     getRoomData(roomID: ID!): RoomData
+    getEvent(eventID: ID!): Event
+    getEventsBetween(startTime: Int!, endTime: Int!): [Event]
+    getAllEvents: [Event]!
+    getAllEventsByGroups(groupIDs: [ID]!): [Event]!
+    getEventsForRooms(roomIDs: [ID]!): [Event]!
   }
 
   type RoomData {
