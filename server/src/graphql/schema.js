@@ -59,6 +59,8 @@ export default `
     getAllAreas: [Area]!
     getArea(areaID: ID!): Area
     getRoomData(roomID: ID!, startTime: Int!, endTime: Int!): RoomData
+    getAllRooms: [Room]!
+    getRoom(roomID: ID!): Room!
   }
 
   type RoomData {

@@ -31,4 +31,13 @@ export default {
         name: roomName,
       };
     }),
+    getAllRooms: async (_, {}, {}) =>
+      safetyNet(async () => {
+        return await Room.find({});
+    }),
+    getRoom: async (_, {roomID}, {}) =>
+      safetyNet(async () => {
+        return await Room.findOne({location: {$eq: roomID}});
+    }),
+
 };
