@@ -25,6 +25,6 @@ export default {
     }),
   getEventsForRooms: async (_, { roomIDs }, {}) =>
     safetyNet(async () => {
-      return await Event.find({ room: { $in: roomIDs } });
+      return await Event.find({ room: { $in: roomIDs }});
     })
 };
