@@ -57,10 +57,15 @@ export default `
 
   type Query {
     getAllAreas: [Area]!
-    getArea(areaID: ID!): Area
-    getRoomData(roomID: ID!, startTime: Int!, endTime: Int!): RoomData
+    getAllEvents: [Event]!
+    getAllEventsByGroups(groupIDs: [ID]!): [Event]!
     getAllRooms: [Room]!
+    getArea(areaID: ID!): Area
+    getEvent(eventID: ID!): Event
+    getEventsBetween(startTime: Int!, endTime: Int!): [Event]
+    getEventsForRooms(roomIDs: [ID]!): [Event]!
     getRoom(roomID: ID!): Room!
+    getRoomData(roomID: ID!, startTime: Int!, endTime: Int!): RoomData
   }
 
   type RoomData {
